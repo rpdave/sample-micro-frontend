@@ -32,13 +32,15 @@ const App = () => {
     }]
   };
   return (
-    <Grid container>
-      <Grid item>
+    <Grid container spacing={2}>
+      <Grid item sm={6}>
         <Paper sx={{p:3, textAlign:"center"}} elevation={4}>
           <Typography>Mixed Usage</Typography>
           <Doughnut data={data}  />
         </Paper>
-        <React.Suspense fallback={<></>}>
+      </Grid>
+      <Grid item sm={6}>
+      <React.Suspense fallback={<></>}>
           <RichTextEditor/>
         </React.Suspense>
       </Grid>
