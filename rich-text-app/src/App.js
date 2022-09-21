@@ -22,7 +22,6 @@ const App = () => {
     <Grid container>
       <Grid item>
         <Paper sx={{p:3, textAlign:"center"}} elevation={4}>
-          <Typography>Yearly Usage</Typography>
           <Slate editor={editor} value={initialValue}>
           <Toolbar>
             <MarkButton format="bold" icon="format_bold" />

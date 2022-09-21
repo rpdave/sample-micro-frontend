@@ -34,6 +34,9 @@ module.exports = {
       exposes: {
         './Application': "./src/App"
       },
+      remotes: {
+        texteditor: 'texteditor@http://localhost:4004/remoteEntry.js'
+      },
       shared: { 
         react: { singleton: true, requiredVersion: dependencies['react'], },
         'react-dom': { singleton: true, requiredVersion: dependencies['react-dom'], } 

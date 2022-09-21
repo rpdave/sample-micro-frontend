@@ -11,6 +11,8 @@ import {
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
+const RichTextEditor = React.lazy(() => import('texteditor/Application'))
+
 const App = () => {
   const data = {
     labels: [
@@ -36,6 +38,9 @@ const App = () => {
           <Typography>Mixed Usage</Typography>
           <Doughnut data={data}  />
         </Paper>
+        <React.Suspense fallback={<></>}>
+          <RichTextEditor/>
+        </React.Suspense>
       </Grid>
     </Grid>
   )
