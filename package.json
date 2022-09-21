@@ -1,0 +1,11 @@
+{ 
+  "name": "dummy-micro-frontends",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+  "start": "concurrently \"cd charting-app; npm start\" \"cd graph-app; npm start\" \"cd rich-text-app; npm start\""
+},
+  "dependencies": {
+    "concurrently": "^7.4.0"
+  }
+}
