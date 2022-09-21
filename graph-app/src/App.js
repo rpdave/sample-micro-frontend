@@ -1,5 +1,5 @@
-import React from 'react';
-import { Grid, Paper, Typography } from '@mui/material';
+import React from "react";
+import { Grid, Paper, Typography } from "@mui/material";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,9 +9,9 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
-import { Line } from 'react-chartjs-2';
-import { faker } from '@faker-js/faker';
+} from "chart.js";
+import { Line } from "react-chartjs-2";
+import { faker } from "@faker-js/faker";
 
 ChartJS.register(
   CategoryScale,
@@ -25,45 +25,58 @@ ChartJS.register(
 
 const App = () => {
   const options = {
-    responsive: true,
+    responsive: false,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: 'top',
+        position: "top",
       },
       title: {
         display: true,
-        text: 'Chart.js Line Chart',
+        text: "Chart.js Line Chart",
       },
     },
   };
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  const labels = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+  ];
   const data = {
     labels,
     datasets: [
       {
-        label: 'Dataset 1',
-        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        label: "Dataset 1",
+        data: labels.map(() =>
+          faker.datatype.number({ min: -1000, max: 1000 })
+        ),
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
       {
-        label: 'Dataset 2',
-        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        label: "Dataset 2",
+        data: labels.map(() =>
+          faker.datatype.number({ min: -1000, max: 1000 })
+        ),
+        borderColor: "rgb(53, 162, 235)",
+        backgroundColor: "rgba(53, 162, 235, 0.5)",
       },
     ],
   };
   return (
-    <Grid container>
+    <Grid container pt={2}>
       <Grid item>
-        <Paper sx={{p:3, textAlign:"center"}} elevation={4}>
+        <Paper sx={{ p: 3, textAlign: "center" }} elevation={4}>
           <Typography>Yearly Usage</Typography>
-          <Line options={options} data={data} />
+          <Line height={200} width={300} options={options} data={data} />
         </Paper>
       </Grid>
     </Grid>
-  )
+  );
 };
 
 export default App;
