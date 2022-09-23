@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "concurrently \"cd charting-app; npm start\" \"cd graph-app; npm start\" \"cd rich-text-app; npm start\" \"cd map-app; npm start\" \"cd search-bar-mfe; npm start\"",
-    "install": "concurrently \"cd charting-app; npm install\" \"cd graph-app; npm install\" \"cd rich-text-app; npm install\" \"cd search-bar-mfe; npm install\" \"cd map-app; npm install\""
+    "start": "concurrently \"cd charting-app; npm start\" \"cd graph-app; npm start\" \"cd rich-text-app; npm start\" \"cd map-app; npm start\" \"cd search-bar-mfe; npm start\" \"cd data-grid-mfe; npm start\"",
+    "install": "concurrently \"cd charting-app; npm install\" \"cd graph-app; npm install\" \"cd rich-text-app; npm install\" \"cd search-bar-mfe; npm install\" \"cd map-app; npm install\" \"cd data-grid-mfe; npm install\""
   },
   "dependencies": {
     "concurrently": "^7.4.0"
