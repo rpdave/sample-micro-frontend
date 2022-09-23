@@ -25,24 +25,25 @@ const App = () => {
   };
   return (
     <Grid container spacing={2}>
-      <Grid item sm={6}>
+      <Grid item sm={12}>
         <Paper sx={{ p: 3, textAlign: "center" }} elevation={4}>
-          <Typography>Mixed Usage</Typography>
-          <Doughnut
-            options={{
-              responsive: false,
-              maintainAspectRatio: false,
-            }}
-            height={200}
-            width={300}
-            data={data}
-          />
+          <Grid container direction={{ xs: "column", md: "row" }}>
+            <Grid item sm={3}>
+              <Doughnut
+                options={{
+                  responsive: false,
+                  maintainAspectRatio: false,
+                }}
+                data={data}
+              />
+            </Grid>
+            <Grid item sm>
+              <React.Suspense fallback={<></>}>
+                <RichTextEditor />
+              </React.Suspense>
+            </Grid>
+          </Grid>
         </Paper>
-      </Grid>
-      <Grid item sm={6}>
-        <React.Suspense fallback={<></>}>
-          <RichTextEditor />
-        </React.Suspense>
       </Grid>
     </Grid>
   );
