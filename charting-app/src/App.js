@@ -1,49 +1,79 @@
 import React from "react";
-import { Grid, Paper, Typography } from "@mui/material";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Doughnut } from "react-chartjs-2";
+import { Grid, Paper } from "@mui/material";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Filler,
+  Legend,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Filler,
+  Legend
+);
 
 const RichTextEditor = React.lazy(() => import("texteditor/Application"));
 
 const App = () => {
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+        text: "Monthly Usage",
+      },
+    },
+  };
+
+  const labels = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+  ];
+
   const data = {
-    labels: ["Red", "Blue", "Yellow"],
+    labels,
     datasets: [
       {
-        label: "My First Dataset",
-        data: [300, 50, 100],
-        backgroundColor: [
-          "rgb(255, 99, 132)",
-          "rgb(54, 162, 235)",
-          "rgb(255, 205, 86)",
-        ],
-        hoverOffset: 4,
+        fill: true,
+        label: "Dataset 2",
+        data: labels.map(() => 500),
+        borderColor: "rgb(53, 162, 235)",
+        backgroundColor: "rgba(53, 162, 235, 0.5)",
       },
     ],
   };
+
   return (
     <Grid container spacing={2}>
-      <Grid item sm={12}>
+      <Grid item sm={6} xs={12}>
         <Paper sx={{ p: 3, textAlign: "center" }} elevation={4}>
-          <Grid container direction={{ xs: "column", md: "row" }}>
-            <Grid item sm={3}>
-              <Doughnut
-                options={{
-                  responsive: false,
-                  maintainAspectRatio: false,
-                }}
-                data={data}
-              />
-            </Grid>
-            <Grid item sm>
-              <React.Suspense fallback={<></>}>
-                <RichTextEditor />
-              </React.Suspense>
-            </Grid>
-          </Grid>
+          <Line options={options} data={data} />;
         </Paper>
+      </Grid>
+      <Grid item sm={6} xs={12}>
+        <React.Suspense fallback={<></>}>
+          <RichTextEditor />
+        </React.Suspense>
       </Grid>
     </Grid>
   );
