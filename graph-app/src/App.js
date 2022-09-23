@@ -25,8 +25,7 @@ ChartJS.register(
 
 const App = () => {
   const options = {
-    responsive: false,
-    maintainAspectRatio: false,
+    response: true,
     plugins: {
       legend: {
         position: "top",
@@ -68,11 +67,17 @@ const App = () => {
     ],
   };
   return (
-    <Grid container pt={2}>
-      <Grid item>
-        <Paper sx={{ p: 3, textAlign: "center" }} elevation={4}>
+    <Grid container pt={2} spacing={2}>
+      <Grid item xs={12} sm={6}>
+        <Paper sx={{ p: 3, textAlign: "center" }}>
           <Typography>Yearly Usage</Typography>
-          <Line height={200} width={300} options={options} data={data} />
+          <Line options={options} data={data} />
+        </Paper>
+      </Grid>
+      <Grid item xs={12} sm={6}>
+        <Paper sx={{ p: 3, textAlign: "center" }}>
+          <Typography>Yearly Usage</Typography>
+          <Line options={options} data={data} />
         </Paper>
       </Grid>
     </Grid>

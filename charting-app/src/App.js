@@ -66,7 +66,7 @@ const App = () => {
   return (
     <Grid container spacing={2}>
       <Grid item sm={6} xs={12}>
-        <Paper sx={{ p: 3, textAlign: "center" }} elevation={4}>
+        <Paper sx={{ p: 3, textAlign: "center" }}>
           <Line options={options} data={data} />;
         </Paper>
       </Grid>
