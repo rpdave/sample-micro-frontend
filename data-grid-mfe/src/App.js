@@ -48,8 +48,8 @@ const rows = [
 
 const App = () => {
   return (
-    <Grid container>
-      <Box sx={{ height: 400, width: "100%" }}>
+    <Grid container mt={2}>
+      <Grid item sx={{ height: 400, width: "100%" }}>
         <DataGrid
           rows={rows}
           columns={columns}
@@ -59,7 +59,7 @@ const App = () => {
           disableSelectionOnClick
           experimentalFeatures={{ newEditingApi: true }}
         />
-      </Box>
+      </Grid>
     </Grid>
   );
 };

@@ -25,14 +25,10 @@ ChartJS.register(
 
 const App = () => {
   const options = {
-    response: true,
+    responsive: true,
     plugins: {
       legend: {
         position: "top",
-      },
-      title: {
-        display: true,
-        text: "Chart.js Line Chart",
       },
     },
   };
@@ -68,13 +64,13 @@ const App = () => {
   };
   return (
     <Grid container pt={2} spacing={2}>
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={12} md={6}>
         <Paper sx={{ p: 3, textAlign: "center" }}>
           <Typography>Yearly Usage</Typography>
           <Line options={options} data={data} />
         </Paper>
       </Grid>
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={12} md={6}>
         <Paper sx={{ p: 3, textAlign: "center" }}>
           <Typography>Yearly Usage</Typography>
           <Line options={options} data={data} />

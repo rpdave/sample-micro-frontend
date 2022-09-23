@@ -1,5 +1,5 @@
 {
-  "name": "search",
+  "name": "datagrid",
   "version": "0.0.0",
   "private": true,
   "devDependencies": {

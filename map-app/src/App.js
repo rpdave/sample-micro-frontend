@@ -15,8 +15,8 @@ export const data = [
 const App = () => {
   return (
     <Grid container pt={2} spacing={2}>
-      <Grid item xs={12} sm={6}>
-        <Paper sx={{ p: 3, textAlign: "center" }} elevation={4}>
+      <Grid item xs={12} md={6}>
+        <Paper sx={{ p: 3, textAlign: "center" }}>
           <Chart
             chartEvents={[
               {
@@ -37,8 +37,8 @@ const App = () => {
           />
         </Paper>
       </Grid>
-      <Grid item xs={12} sm={6}>
-        <Paper sx={{ p: 3, textAlign: "center" }} elevation={4}>
+      <Grid item xs={12} md={6}>
+        <Paper sx={{ p: 3, textAlign: "center" }}>
           <Chart
             chartEvents={[
               {

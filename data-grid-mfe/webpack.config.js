@@ -29,13 +29,10 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "search",
+      name: "datagrid",
       filename: "remoteEntry.js",
       exposes: {
         "./Application": "./src/App",
-      },
-      remotes: {
-        shell: "superfleet_shell@http://localhost:3000/remoteEntry.js",
       },
       shared: {
         react: { singleton: true, requiredVersion: dependencies["react"] },

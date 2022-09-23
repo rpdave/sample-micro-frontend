@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Paper } from "@mui/material";
+import { Grid, Paper, Typography } from "@mui/material";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -33,10 +33,6 @@ const App = () => {
       legend: {
         position: "top",
       },
-      title: {
-        display: true,
-        text: "Monthly Usage",
-      },
     },
   };
 
@@ -65,12 +61,13 @@ const App = () => {
 
   return (
     <Grid container spacing={2}>
-      <Grid item sm={6} xs={12}>
+      <Grid item md={6} xs={12}>
         <Paper sx={{ p: 3, textAlign: "center" }}>
+          <Typography>Monthly Usage</Typography>
           <Line options={options} data={data} />;
         </Paper>
       </Grid>
-      <Grid item sm={6} xs={12}>
+      <Grid item md={6} xs={12}>
         <React.Suspense fallback={<></>}>
           <RichTextEditor />
         </React.Suspense>
