@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Grid, Paper, Typography } from "@mui/material";
 import {
   Chart as ChartJS,
@@ -12,6 +12,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import { faker } from "@faker-js/faker";
 
 ChartJS.register(
   CategoryScale,
@@ -46,13 +47,29 @@ const App = () => {
     "July",
   ];
 
+  const [graphData, setGraphData] = useState([]);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      // Generate some fake data
+      const fakeData = labels.map(() =>
+        faker.datatype.number({ min: 0, max: 1000 })
+      );
+      setGraphData(fakeData);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [graphData]);
+
   const data = {
     labels,
     datasets: [
       {
         fill: true,
         label: "Dataset 2",
-        data: labels.map(() => 500),
+        data: graphData,
         borderColor: "rgb(53, 162, 235)",
         backgroundColor: "rgba(53, 162, 235, 0.5)",
       },
@@ -64,7 +81,7 @@ const App = () => {
       <Grid item md={6} xs={12}>
         <Paper sx={{ p: 3, textAlign: "center" }}>
           <Typography>Monthly Usage</Typography>
-          <Line options={options} data={data} />;
+          <Line options={options} data={data} />
         </Paper>
       </Grid>
       <Grid item md={6} xs={12}>
