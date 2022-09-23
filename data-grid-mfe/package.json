@@ -24,6 +24,7 @@
     "@emotion/styled": "^11.10.4",
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.6",
+    "@mui/x-data-grid": "^5.17.3",
     "@popperjs/core": "^2.11.6",
     "install": "^0.13.0",
     "npm": "^8.19.2",

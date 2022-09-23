@@ -1,87 +1,65 @@
-import React, { useState, useEffect } from "react";
-import {
-  Grid,
-  TextField,
-  InputAdornment,
-  Popper,
-  Paper,
-  Typography,
-} from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
-import { useSearch } from "./useSearch";
-import { useEventBus } from "shell/EventBus";
-import { ShellLogEvent } from "shell/Events";
+import React from "react";
+import { Grid, Box } from "@mui/material";
+import { DataGrid } from "@mui/x-data-grid";
 
-const SearchItem = (props) => {
-  const { searchItem } = props;
+const columns = [
+  { field: "id", headerName: "ID", width: 90 },
+  {
+    field: "firstName",
+    headerName: "First name",
+    width: 150,
+    editable: true,
+  },
+  {
+    field: "lastName",
+    headerName: "Last name",
+    width: 150,
+    editable: true,
+  },
+  {
+    field: "age",
+    headerName: "Age",
+    type: "number",
+    width: 110,
+    editable: true,
+  },
+  {
+    field: "fullName",
+    headerName: "Full name",
+    description: "This column has a value getter and is not sortable.",
+    sortable: false,
+    width: 160,
+    valueGetter: (params) =>
+      `${params.row.firstName || ""} ${params.row.lastName || ""}`,
+  },
+];
 
-  const eventBus = useEventBus({
-    domain: "Search",
-    sourceComponent: "SearchApplication",
-  });
-
-  const handleClick = () => {
-    // Fire off some kind of event here that the shell can pickup and use to navigate
-    eventBus.emit(
-      new ShellLogEvent({
-        type: "track",
-        event: "SEARCH_UPDATE_TERM_LOG",
-        message: "User is typing into the search bad",
-        payload: {
-          value: searchItem,
-        },
-      })
-    );
-  };
-  return (
-    <Grid item onClick={handleClick} sx={{ cursor: "pointer" }}>
-      <Typography sx={{ p: 1 }}>{searchItem.term}</Typography>
-    </Grid>
-  );
-};
+const rows = [
+  { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
+  { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
+  { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
+  { id: 4, lastName: "Stark", firstName: "Arya", age: 16 },
+  { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
+  { id: 6, lastName: "Melisandre", firstName: null, age: 150 },
+  { id: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
+  { id: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
+  { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
+];
 
 const App = () => {
-  const [searchTerm, setSearchTerm] = useState();
-  const [anchorEl, setAnchorEl] = useState();
-  const searchRes = useSearch(searchTerm);
-  const id = open ? "simple-popper" : undefined;
-
-  useEffect(() => {
-    setAnchorEl(document.getElementById("text-input-search"));
-  }, []);
-
   return (
-    <Grid item>
-      <TextField
-        id="text-input-search"
-        label="Search"
-        size="small"
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="start">
-              <SearchIcon />
-            </InputAdornment>
-          ),
-        }}
-        onChange={(e) => {
-          setSearchTerm(e.target.value);
-        }}
-      />
-      <Popper
-        id={id}
-        open={searchRes?.length > 0}
-        anchorEl={anchorEl}
-        placement={"bottom"}
-        sx={{ minWidth: "300px" }}
-      >
-        <Paper elevation={4}>
-          <Grid container justifyContent="center" direction={"column"}>
-            {searchRes?.map((item, index) => (
-              <SearchItem searchItem={item} key={index} />
-            ))}
-          </Grid>
-        </Paper>
-      </Popper>
+    <Grid container>
+      <Box sx={{ height: 400, width: "100%" }}>
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
+          checkboxSelection
+          disableSelectionOnClick
+          experimentalFeatures={{ newEditingApi: true }}
+        />
+      </Box>
     </Grid>
   );
 };
