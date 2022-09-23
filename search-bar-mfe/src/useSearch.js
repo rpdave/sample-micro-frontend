@@ -1,18 +1,23 @@
 const SearchableItems = [
   {
     term: "Demo MFE",
+    link: "/demo",
   },
   {
     term: "Persistence Page",
+    link: "/demo/persistence",
   },
   {
     term: "Error Handling",
+    link: "/demo/error",
   },
   {
     term: "Notifications Application",
+    link: "/notifications",
   },
   {
     term: "Customers MFE",
+    link: "/customers",
   },
 ];
 
