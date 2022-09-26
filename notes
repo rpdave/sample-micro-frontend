@@ -4,8 +4,29 @@ issues saying its all too complicated
 
 MFE cant use react 17 when having shell as a remote as shell being 18
 
-I feel like event listener setup is complicated and not really the de coupled process it should be - address this
+I feel like event listener setup is complicated and not really the de coupled process it should be - address this - its not - super simple
+
+its simple when you know, but hwo can you know, and where can you learn
 
 some interesting notes
 The new MFE use react 17
-Download size is huge? could be it be because of different version of react? non shared deps?
+Download size is huge? could be it be because of different version of react? non shared deps? because I dont use the sf-package-fed?
+
+minfy with prod builds - use buld and serve commands
+
+Do we want to load progressivly load MFE on navigation? right now its all kind of dumped on the home page, Ideally I think its all just a monolith at runtime and should not matter how we load it? IMO unless we introduce memory leaks like holding on to refs in useEffect hooks or data lying around I think the browser is capable of handling memory and data that leaves the screen
+
+doesnt react virualise that part anyways?
+
+I use js because this is a runtime concern and so type safety and checking I kind of dropped for now as its all mostly POC and move fast kind of approach, do we feel this is ok?
+
+single component - perhaps not the best or complete
+more application based MFE use routing, events
+
+performace - visit all MFE load home page - report 1
+performance within an MFE - should be fe devs resp
+
+deep page - not home page
+simple list, html elements - 3-4 rows
+use faker to gen data - add search - w/o lazy load, pag, infinite scroll - will see some ui lag - input lag
+useEff with out dep array memory leak

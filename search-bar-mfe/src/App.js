@@ -10,7 +10,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import { useSearch } from "./useSearch";
 import { useEventBus } from "shell/EventBus";
-import { ShellLogEvent } from "shell/Events";
+import { ShellLogEvent, IntentEvent } from "shell/Events";
 
 const SearchItem = (props) => {
   const { searchItem } = props;
@@ -32,9 +32,20 @@ const SearchItem = (props) => {
         },
       })
     );
+
+    eventBus.emit(
+      new IntentEvent({
+        intent: "navigate",
+        path: searchItem.link,
+      })
+    );
   };
   return (
-    <Grid item onClick={handleClick} sx={{ cursor: "pointer" }}>
+    <Grid
+      item
+      onClick={() => handleClick(searchItem)}
+      sx={{ cursor: "pointer" }}
+    >
       <Typography sx={{ p: 1 }}>{searchItem.term}</Typography>
     </Grid>
   );
