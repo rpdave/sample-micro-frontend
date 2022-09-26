@@ -27,6 +27,7 @@ let index = 1;
 
 const App = () => {
   const [dataRows, setDataRows] = useState(rows);
+  const [pageSize, setPageSize] = useState(5);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -40,7 +41,7 @@ const App = () => {
       index++;
       const newRows = [...dataRows, newRow];
       setDataRows(newRows);
-    }, 3000);
+    }, 1500);
 
     return () => {
       clearTimeout(timeout);
@@ -53,7 +54,8 @@ const App = () => {
         <DataGrid
           rows={dataRows}
           columns={columns}
-          pageSize={5}
+          pageSize={pageSize}
+          onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
           rowsPerPageOptions={[5, 10, 15, 20]}
           checkboxSelection
           disableSelectionOnClick
