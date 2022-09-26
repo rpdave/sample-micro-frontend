@@ -4,4 +4,8 @@ issues saying its all too complicated
 
 MFE cant use react 17 when having shell as a remote as shell being 18
 
-I feel like event listener setup is complicated and not really the de coupled process it should be
+I feel like event listener setup is complicated and not really the de coupled process it should be - address this
+
+some interesting notes
+The new MFE use react 17
+Download size is huge? could be it be because of different version of react? non shared deps?

@@ -34,7 +34,7 @@ const App = () => {
       // Generate some fake data
       const fakeData = genFakeData();
 
-      const fakeData2 = genFakeDAta();
+      const fakeData2 = genFakeData();
 
       setMapData(fakeData);
       setMapData2(fakeData2);
