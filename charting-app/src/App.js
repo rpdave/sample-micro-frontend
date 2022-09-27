@@ -13,6 +13,8 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { faker } from "@faker-js/faker";
+import { useEventBus } from "sf_shell/EventBus";
+import { NotificationEvent } from "sf_ui/Events";
 
 ChartJS.register(
   CategoryScale,
@@ -49,12 +51,29 @@ const App = () => {
 
   const [graphData, setGraphData] = useState([]);
 
+  const bus = useEventBus({
+    domain: "Charting",
+    sourceComponent: "Home",
+  });
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       // Generate some fake data
       const fakeData = labels.map(() =>
         faker.datatype.number({ min: 0, max: 1000 })
       );
+
+      // If any value is greater than 900 send a notification
+      if (fakeData.some((val) => val > 900)) {
+        bus.emit(
+          new NotificationEvent({
+            id: faker.random.alphaNumeric(),
+            message: "Charting MFE generated a value larger than 900",
+            read: false,
+          })
+        );
+      }
+
       setGraphData(fakeData);
     }, 3000);
 
