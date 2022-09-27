@@ -33,6 +33,7 @@ module.exports = {
       filename: "remoteEntry.js",
       exposes: {
         "./Application": "./src/App",
+        "./Counter": "./src/Counter",
       },
       remotes: {
         texteditor: "texteditor@http://localhost:4004/remoteEntry.js",
