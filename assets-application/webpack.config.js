@@ -35,6 +35,7 @@ module.exports = {
       exposes: {
         "./Application": "./src/App",
         "./StatWidget": "./src/StatWidget",
+        "./AssetsNavMenu": "./src/AssetsNavMenu",
       },
       remotes: {
         shell: "superfleet_shell@http://localhost:3000/remoteEntry.js",
