@@ -11,6 +11,7 @@ module.exports = {
       directory: path.join(__dirname, "dist"),
     },
     port: 4008,
+    historyApiFallback: true,
   },
   output: {
     publicPath: "auto",
@@ -34,9 +35,10 @@ module.exports = {
       exposes: {
         "./Application": "./src/App",
       },
-      // remotes: {
-      //   shell: "superfleet_shell@http://localhost:3000/remoteEntry.js",
-      // },
+      remotes: {
+        shell: "superfleet_shell@http://localhost:3000/remoteEntry.js",
+        ui: "superfleet_ui@http://localhost:3002/remoteEntry.js",
+      },
       shared: {
         react: { singleton: true, requiredVersion: dependencies["react"] },
         "react-dom": {
