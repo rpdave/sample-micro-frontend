@@ -33,6 +33,7 @@ module.exports = {
       filename: "remoteEntry.js",
       exposes: {
         "./Application": "./src/App",
+        "./DataGridWidget": "./src/DataGridWidget",
       },
       shared: {
         react: { singleton: true, requiredVersion: dependencies["react"] },

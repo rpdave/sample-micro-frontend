@@ -6,6 +6,7 @@ import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import ElectricBoltIcon from "@mui/icons-material/ElectricBolt";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 const ChartWidget = React.lazy(() => import("chart/ChartWidget"));
+const DataGridWidget = React.lazy(() => import("datagrid/DataGridWidget"));
 
 const App = () => {
   return (
@@ -43,7 +44,11 @@ const App = () => {
       </Grid>
 
       {/* Data Grid */}
-      <Grid item xs={12}></Grid>
+      <Grid item xs={12} sx={{ height: 400, width: "100%" }}>
+        <React.Suspense>
+          <DataGridWidget />
+        </React.Suspense>
+      </Grid>
     </Grid>
   );
 };
