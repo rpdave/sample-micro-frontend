@@ -3,7 +3,10 @@ import { NavMenuExpandable } from "ui/NavMenu";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 
 const AssetsNavMenu = () => {
-  const pages = [{ title: "Assets", url: "/assets" }];
+  const pages = [
+    { title: "Dashboard", url: "/assets" },
+    { title: "Create", url: "/assets/create" },
+  ];
   return (
     <NavMenuExpandable
       text="Assets"

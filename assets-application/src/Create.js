@@ -1,7 +1,8 @@
 import React from "react";
+const AppLayout = React.lazy(() => import("ui/AppLayout"));
 
 const Create = () => {
-  return <div>Create</div>;
+  return <AppLayout>Create</AppLayout>;
 };
 
 export default Create;
