@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import { DataGrid } from "@mui/x-data-grid";
 import { faker } from "@faker-js/faker";
