@@ -34,10 +34,12 @@ module.exports = {
       filename: "remoteEntry.js",
       exposes: {
         "./Application": "./src/App",
+        "./StatWidget": "./src/StatWidget",
       },
       remotes: {
         shell: "superfleet_shell@http://localhost:3000/remoteEntry.js",
         ui: "superfleet_ui@http://localhost:3002/remoteEntry.js",
+        chart: "charting@http://localhost:4002/remoteEntry.js",
       },
       shared: {
         react: { singleton: true, requiredVersion: dependencies["react"] },

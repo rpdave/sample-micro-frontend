@@ -34,6 +34,7 @@ module.exports = {
       exposes: {
         "./Application": "./src/App",
         "./Counter": "./src/Counter",
+        "./ChartWidget": "./src/ChartWidget",
       },
       remotes: {
         texteditor: "texteditor@http://localhost:4004/remoteEntry.js",
