@@ -1,19 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Create from "./Create";
+import CreateAsset from "./CreateAsset";
 import Home from "./Home";
 
 const prefix = "assets";
 
 const router = createBrowserRouter([
   {
-    path: `${prefix}/`,
+    path: `/`,
     element: <Home />,
   },
   {
-    path: `${prefix}/create`,
-    element: <Create />,
+    path: `/create`,
+    element: <CreateAsset />,
   },
 ]);
 
