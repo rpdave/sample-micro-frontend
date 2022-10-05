@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Grid, Box } from "@mui/material";
+import { Grid } from "@mui/material";
+import React from "react";
 
 import DataGridWidget from "./DataGridWidget";
 
