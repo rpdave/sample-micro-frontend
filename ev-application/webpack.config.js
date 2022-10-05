@@ -40,7 +40,7 @@ module.exports = {
       remotes: {
         shell: "superfleet_shell@http://localhost:3000/remoteEntry.js",
         ui: "superfleet_ui@http://localhost:3002/remoteEntry.js",
-        chart: "charting@http://localhost:4002/remoteEntry.js",
+        map: "mapping@http://localhost:4006/remoteEntry.js",
         datagrid: "datagrid@http://localhost:4007/remoteEntry.js",
       },
       shared: {

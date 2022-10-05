@@ -15,7 +15,7 @@ const genFakeData = () => {
   ];
 };
 
-const App = () => {
+const App = (props) => {
   const data = [
     ["Country", "Population"],
     ["Germany", 200],
@@ -44,6 +44,10 @@ const App = () => {
       clearTimeout(timeout);
     };
   }, [mapData]);
+
+  const options = {
+    region: props.region || "150",
+  };
 
   return (
     <Grid container pt={2} spacing={2}>
@@ -88,6 +92,7 @@ const App = () => {
             width="100%"
             height="400px"
             data={mapData2}
+            options={options}
           />
         </Paper>
       </Grid>

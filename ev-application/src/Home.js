@@ -5,7 +5,7 @@ import EvStationIcon from "@mui/icons-material/EvStation";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import ElectricBoltIcon from "@mui/icons-material/ElectricBolt";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
-const ChartWidget = React.lazy(() => import("chart/ChartWidget"));
+const MapWidget = React.lazy(() => import("map/Application"));
 const DataGridWidget = React.lazy(() => import("datagrid/DataGridWidget"));
 const AppLayout = React.lazy(() => import("ui/AppLayout"));
 
@@ -42,7 +42,7 @@ const Home = () => {
           {/* Charts */}
           <Grid item xs={12}>
             <React.Suspense>
-              <ChartWidget title="Monthly Power Supply" />
+              <MapWidget title="Monthly Power Supply" />
             </React.Suspense>
           </Grid>
 
