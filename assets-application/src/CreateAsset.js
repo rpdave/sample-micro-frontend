@@ -10,6 +10,9 @@ import {
   Button,
   Box,
 } from "@mui/material";
+import { useEventBus } from "shell/EventBus";
+import { NotificationEvent } from "ui/Events";
+import { faker } from "@faker-js/faker";
 
 const steps = [
   "Select campaign settings",
@@ -20,7 +23,21 @@ const steps = [
 const CreateAsset = () => {
   const [activeStep, setActiveStep] = React.useState(0);
 
+  const bus = useEventBus({
+    domain: "Assets",
+    sourceComponent: "CreateAsset",
+  });
+
   const handleNext = () => {
+    if (activeStep >= steps.length - 1) {
+      bus.emit(
+        new NotificationEvent({
+          id: faker.random.alphaNumeric(),
+          message: "A new ad campaign was created",
+          read: false,
+        })
+      );
+    }
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
@@ -72,7 +89,7 @@ const CreateAsset = () => {
                 </Grid>
                 <Grid item sx={{ mt: 2 }}>
                   <Button variant="contained" onClick={handleNext}>
-                    {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                    {activeStep >= steps.length - 1 ? "Finish" : "Next"}
                   </Button>
                 </Grid>
               </Grid>
