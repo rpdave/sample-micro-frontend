@@ -33,6 +33,8 @@ module.exports = {
       filename: "remoteEntry.js",
       exposes: {
         "./Application": "./src/App",
+        "./MapWidget": "./src/MapWidget",
+        "./SalesMapWidget": "./src/SalesMapWidget",
       },
       shared: {
         react: { singleton: true, requiredVersion: dependencies["react"] },
