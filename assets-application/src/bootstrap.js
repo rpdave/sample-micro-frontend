@@ -1,5 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Create from "./Create";
+import Home from "./Home";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+const prefix = "assets";
+
+const router = createBrowserRouter([
+  {
+    path: `${prefix}/`,
+    element: <Home />,
+  },
+  {
+    path: `${prefix}/create`,
+    element: <Create />,
+  },
+]);
+
+ReactDOM.render(
+  <RouterProvider router={router} />,
+  document.getElementById("root")
+);

@@ -1,23 +1,15 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Create from "./Create";
 import Home from "./Home";
 
-const prefix = "assets";
-
-const router = createBrowserRouter([
-  {
-    path: `${prefix}/`,
-    element: <Home />,
-  },
-  {
-    path: `${prefix}/create`,
-    element: <Create />,
-  },
-]);
-
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/create" element={<Create />} />
+    </Routes>
+  );
 };
 
 export default App;
