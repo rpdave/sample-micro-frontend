@@ -5,7 +5,7 @@ import App from "./App";
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <App prefix="assets/" />
   </BrowserRouter>,
   document.getElementById("root")
 );

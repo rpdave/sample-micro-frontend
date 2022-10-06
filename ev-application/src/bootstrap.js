@@ -1,23 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import CreateAsset from "./CreateAsset";
-import Home from "./Home";
-
-const prefix = "assets";
-
-const router = createBrowserRouter([
-  {
-    path: `/`,
-    element: <Home />,
-  },
-  {
-    path: `/create`,
-    element: <CreateAsset />,
-  },
-]);
+import App from "./App";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-  <RouterProvider router={router} />,
+  <BrowserRouter>
+    <App prefix="/ev" />
+  </BrowserRouter>,
   document.getElementById("root")
 );
