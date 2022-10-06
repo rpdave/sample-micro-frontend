@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "start:charting": "cd charting-app; npm start",
-    "start": "concurrently \"npm run start:charting\" \"cd graph-app; npm start\" \"cd rich-text-app; npm start\" \"cd map-app; npm start\" \"cd search-bar-mfe; npm start\" \"cd data-grid-mfe; npm start\" \"cd assets-application; npm start\"",
-    "install": "concurrently \"cd charting-app; npm install\" \"cd graph-app; npm install\" \"cd rich-text-app; npm install\" \"cd search-bar-mfe; npm install\" \"cd map-app; npm install\" \"cd data-grid-mfe; npm install\" \"cd assets-application; npm install\"",
-    "build": "concurrently \"cd charting-app; npm build\" \"cd graph-app; npm build\" \"cd rich-text-app; npm build\" \"cd search-bar-mfe; npm build\" \"cd map-app; npm build\" \"cd data-grid-mfe; npm build\" \"cd assets-application; npm build\"",
-    "serve": "concurrently \"cd charting-app; npm serve\" \"cd graph-app; npm serve\" \"cd rich-text-app; npm serve\" \"cd search-bar-mfe; npm serve\" \"cd map-app; npm serve\" \"cd data-grid-mfe; npm serve\" \"cd assets-application; npm serve\""
+    "start": "concurrently \"npm run start:charting\" \"cd graph-app; npm start\" \"cd rich-text-app; npm start\" \"cd map-app; npm start\" \"cd search-bar-mfe; npm start\" \"cd data-grid-mfe; npm start\" \"cd assets-application; npm start\" \"cd ev-application; npm start\"",
+    "install": "concurrently \"cd charting-app; npm install\" \"cd graph-app; npm install\" \"cd rich-text-app; npm install\" \"cd search-bar-mfe; npm install\" \"cd map-app; npm install\" \"cd data-grid-mfe; npm install\" \"cd assets-application; npm install\" \"cd ev-application; npm install\"",
+    "build": "concurrently \"cd charting-app; npm build\" \"cd graph-app; npm build\" \"cd rich-text-app; npm build\" \"cd search-bar-mfe; npm build\" \"cd map-app; npm build\" \"cd data-grid-mfe; npm build\" \"cd assets-application; npm build\" \"cd ev-application; npm build\"",
+    "serve": "concurrently \"cd charting-app; npm serve\" \"cd graph-app; npm serve\" \"cd rich-text-app; npm serve\" \"cd search-bar-mfe; npm serve\" \"cd map-app; npm serve\" \"cd data-grid-mfe; npm serve\" \"cd assets-application; npm serve\" \"cd ev-application; npm serve\""
   },
   "dependencies": {
     "concurrently": "^7.4.0"

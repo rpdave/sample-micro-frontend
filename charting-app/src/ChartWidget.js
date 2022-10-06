@@ -76,7 +76,7 @@ const ChartWidget = (props) => {
       );
 
       // If any value is greater than 900 send a notification
-      if (fakeData.some((val) => val > 900)) {
+      if (fakeData.some((val) => val > 980)) {
         bus.emit(
           new NotificationEvent({
             id: faker.random.alphaNumeric(),
