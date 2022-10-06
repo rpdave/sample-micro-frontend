@@ -1,23 +1,16 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import Overview from "./Overview";
 
-const prefix = "sales";
-
-const router = createBrowserRouter([
-  {
-    path: `${prefix}/`,
-    element: <Home />,
-  },
-  {
-    path: `${prefix}/overview`,
-    element: <Overview />,
-  },
-]);
-
-const App = () => {
-  return <RouterProvider router={router} />;
+const App = (props) => {
+  const prefix = props.prefix || "";
+  return (
+    <Routes>
+      <Route path={`${prefix}/`} element={<Home />} />
+      <Route path={`${prefix}/overview`} element={<Overview />} />
+      <Route path="*" element={<p>Not Found</p>} />
+    </Routes>
+  );
 };
-
 export default App;
