@@ -34,6 +34,12 @@ module.exports = {
       exposes: {
         "./Application": "./src/App",
         "./DataGridWidget": "./src/DataGridWidget",
+        "./SalesDataGridWidget": "./src/SalesDataGridWidget",
+        "./InventoryDataGridWidget": "./src/InventoryDataGridWidget",
+      },
+      remotes: {
+        shell: "superfleet_shell@http://localhost:3000/remoteEntry.js",
+        ui: "superfleet_ui@http://localhost:3002/remoteEntry.js",
       },
       shared: {
         react: { singleton: true, requiredVersion: dependencies["react"] },

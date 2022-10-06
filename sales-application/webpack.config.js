@@ -10,7 +10,8 @@ module.exports = {
     static: {
       directory: path.join(__dirname, "dist"),
     },
-    port: 4006,
+    port: 4010,
+    historyApiFallback: true,
   },
   output: {
     publicPath: "auto",
@@ -29,18 +30,28 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "mapping",
+      name: "sales",
       filename: "remoteEntry.js",
       exposes: {
         "./Application": "./src/App",
-        "./MapWidget": "./src/MapWidget",
-        "./SalesMapWidget": "./src/SalesMapWidget",
+        "./SalesNavMenu": "./src/SalesNavMenu",
+      },
+      remotes: {
+        shell: "superfleet_shell@http://localhost:3000/remoteEntry.js",
+        ui: "superfleet_ui@http://localhost:3002/remoteEntry.js",
+        chart: "charting@http://localhost:4002/remoteEntry.js",
+        datagrid: "datagrid@http://localhost:4007/remoteEntry.js",
+        mapping: "mapping@http://localhost:4006/remoteEntry.js",
       },
       shared: {
         react: { singleton: true, requiredVersion: dependencies["react"] },
         "react-dom": {
           singleton: true,
           requiredVersion: dependencies["react-dom"],
+        },
+        "react-router-dom": {
+          singleton: true,
+          requiredVersion: dependencies["react-router-dom"],
         },
       },
     }),

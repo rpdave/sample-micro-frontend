@@ -1,18 +1,18 @@
-import React from "react";
-const AppLayout = React.lazy(() => import("ui/AppLayout"));
+import { faker } from "@faker-js/faker";
 import {
+  Box,
+  Button,
   Grid,
-  Stepper,
+  Paper,
   Step,
   StepLabel,
-  Paper,
+  Stepper,
   TextField,
-  Button,
-  Box,
 } from "@mui/material";
+import React from "react";
 import { useEventBus } from "shell/EventBus";
 import { NotificationEvent } from "ui/Events";
-import { faker } from "@faker-js/faker";
+const AppLayout = React.lazy(() => import("ui/AppLayout"));
 
 const steps = [
   "Select campaign settings",
